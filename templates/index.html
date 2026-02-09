@@ -1,0 +1,20 @@
+<h2>HR Analytics Dashboard</h2>
+
+<p>Total Employees: {{ total }}</p>
+<p>Average Salary: {{ salary }}</p>
+<p>Attrition Rate: {{ rate }}%</p>
+
+<h3>Predict Attrition</h3>
+
+<form method="POST">
+Age <input name="age"><br>
+Salary <input name="salary"><br>
+Years <input name="years"><br>
+Department (0-3) <input name="dept"><br>
+Performance (1-5) <input name="perf"><br>
+<button type="submit">Predict</button>
+</form>
+
+{% if prediction %}
+<h3>Result: {{ prediction }}</h3>
+{% endif %}
