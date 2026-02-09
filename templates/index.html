@@ -1,20 +1,40 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 <h2>HR Analytics Dashboard</h2>
 
-<p>Total Employees: {{ total }}</p>
-<p>Average Salary: {{ salary }}</p>
-<p>Attrition Rate: {{ rate }}%</p>
+<div class="card">
+Total Employees: {{ total }} <br>
+Average Salary: {{ salary }} <br>
+Attrition Rate: {{ rate }}%
+</div>
 
+<div class="card">
+<img src="{{ url_for('static', filename='attrition.png') }}" width="300">
+<img src="{{ url_for('static', filename='dept.png') }}" width="300">
+</div>
+
+<div class="card">
 <h3>Predict Attrition</h3>
 
 <form method="POST">
 Age <input name="age"><br>
 Salary <input name="salary"><br>
 Years <input name="years"><br>
-Department (0-3) <input name="dept"><br>
-Performance (1-5) <input name="perf"><br>
+
+Department
+<select name="dept">
+<option value="0">Finance</option>
+<option value="1">HR</option>
+<option value="2">IT</option>
+<option value="3">Sales</option>
+</select><br>
+
+Performance <input name="perf"><br>
+
 <button type="submit">Predict</button>
 </form>
 
 {% if prediction %}
 <h3>Result: {{ prediction }}</h3>
 {% endif %}
+</div>
