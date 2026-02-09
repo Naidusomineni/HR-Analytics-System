@@ -9,7 +9,9 @@ model = joblib.load("model/model.pkl")
 @app.route("/", methods=["GET","POST"])
 def home():
 
-    generate_charts()   
+    if request.method == "GET":
+    generate_charts()
+
 
     df = pd.read_csv("data/hr_data.csv")
 
