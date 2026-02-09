@@ -1,6 +1,6 @@
 import pandas as pd
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import LabelEncoder
+from sklearn.ensemble import RandomForestClassifier
+model = RandomForestClassifier(n_estimators=100)
 import joblib, os
 
 df = pd.read_csv("data/hr_data.csv")
