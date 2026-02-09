@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from dashboard.charts import generate_charts
 import joblib, pandas as pd
 import numpy as np
 
