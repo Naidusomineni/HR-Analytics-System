@@ -8,11 +8,15 @@ model = joblib.load("model/model.pkl")
 
 @app.route("/", methods=["GET","POST"])
 def home():
+
+    generate_charts()   
+
     df = pd.read_csv("data/hr_data.csv")
 
     total = len(df)
     avg_salary = int(df["salary"].mean())
     attrition_rate = round(df["attrition"].mean()*100,2)
+
 
     prediction = None
 
