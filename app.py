@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import joblib
 import pandas as pd
 import numpy as np
-
+import sqlite3
 app = Flask(__name__)
 
 # load model
@@ -13,7 +13,6 @@ model = joblib.load("model/model.pkl")
 @app.route("/", methods=["GET", "POST"])
 def home():
 
-import sqlite3
 conn = sqlite3.connect("hr.db")
 df = pd.read_sql("SELECT * FROM employees", conn)
 conn.close()
