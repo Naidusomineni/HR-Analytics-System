@@ -13,7 +13,11 @@ model = joblib.load("model/model.pkl")
 @app.route("/", methods=["GET", "POST"])
 def home():
 
-    df = pd.read_csv("data/hr_data.csv")
+import sqlite3
+conn = sqlite3.connect("hr.db")
+df = pd.read_sql("SELECT * FROM employees", conn)
+conn.close()
+
 
     total = len(df)
     avg_salary = int(df["salary"].mean())
