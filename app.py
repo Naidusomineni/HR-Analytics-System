@@ -3,15 +3,11 @@ import joblib
 import pandas as pd
 import numpy as np
 
-from dashboard.charts import generate_charts
-
 app = Flask(__name__)
 
 # load model
 model = joblib.load("model/model.pkl")
 
-# ⭐ generate charts ONLY ONCE at startup (NOT inside route)
-generate_charts()
 
 
 @app.route("/", methods=["GET", "POST"])
